@@ -1,0 +1,24 @@
+:root{--bg:#f3f6f4;--card:#fff;--ink:#14261f;--mute:#5f7169;--line:#d9e2dd;--green:#1f7a5a;--red:#b8412f;--soft:#e4efe9}
+@media(prefers-color-scheme:dark){:root{--bg:#0f1a16;--card:#17251f;--ink:#e6f0eb;--mute:#93a79d;--line:#28382f;--green:#4cc79a;--red:#ef7f6b;--soft:#1e3128}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,sans-serif}
+.wrap{max-width:1000px;margin:0 auto;padding:24px 16px 48px}
+h1{margin:0 0 4px}h2{font-size:1.1rem;margin:0 0 10px}
+.mute{color:var(--mute)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:14px}
+.controls{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-bottom:14px}
+.grid .card{margin:0}.grid b{display:block;font-size:1.6rem}
+.cols{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+@media(max-width:760px){.cols{grid-template-columns:1fr}}
+label{display:block;font-size:.85rem;color:var(--mute);margin:8px 0 3px}
+input,select{width:100%;padding:9px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);font-size:1rem}
+button{margin-top:10px;padding:9px 14px;border:0;border-radius:6px;background:var(--green);color:#fff;cursor:pointer}
+button.x{background:none;color:var(--red);margin:0;padding:0 6px}
+.pos{color:var(--green)}.neg{color:var(--red)}
+.bar{height:10px;background:var(--soft);border-radius:5px;overflow:hidden;margin:3px 0 10px}
+.bar i{display:block;height:100%;background:var(--green)}.bar i.over{background:var(--red)}
+.cat{display:flex;justify-content:space-between;font-size:.9rem}
+.scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:.9rem}
+th,td{text-align:left;padding:6px;border-bottom:1px solid var(--line);white-space:nowrap}
+.tip{border-left:4px solid var(--green);background:var(--soft);padding:6px 12px;margin:8px 0;border-radius:0 6px 6px 0;color:var(--ink)}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Personal Finance Advisor Bot</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<main class="wrap">
+  <h1>Personal Finance Advisor Bot</h1>
+  <p class="mute">Log income and expenses, get a budget plan, and ask the AI advisor for savings advice.</p>
+
+  <section class="card controls">
+    <div><label for="month">Month</label><input type="month" id="month"></div>
+    <div><label for="profile">I am a</label>
+      <select id="profile"><option value="salaried">Salaried professional</option>
+      <option value="student">College student</option><option value="freelancer">Freelancer</option>
+      <option value="household">Household manager</option></select></div>
+    <div><label for="goal">Savings goal (%)</label><input type="number" id="goal" value="20" min="0" max="100"></div>
+  </section>
+
+  <section class="grid" id="stats"></section>
+
+  <section class="cols">
+    <div class="card"><h2>Add income</h2>
+      <label for="isrc">Source</label><input id="isrc">
+      <label for="iamt">Amount (₹)</label><input id="iamt" type="number" min="0">
+      <button id="addInc">Add income</button></div>
+    <div class="card"><h2>Add expense</h2>
+      <label for="ecat">Category</label>
+      <select id="ecat">{% for c in categories %}<option>{{ c }}</option>{% endfor %}</select>
+      <label for="eamt">Amount (₹)</label><input id="eamt" type="number" min="0">
+      <label for="enote">Note</label><input id="enote">
+      <button id="addExp">Add expense</button></div>
+  </section>
+
+  <section class="cols">
+    <div class="card"><h2>Budget plan</h2><div id="budget"></div></div>
+    <div class="card"><h2>AI advisor</h2><div id="tips" class="mute">Loading…</div>
+      <button id="refresh">Refresh advice</button></div>
+  </section>
+
+  <section class="cols">
+    <div class="card"><h2>Income</h2><div class="scroll" id="incList"></div></div>
+    <div class="card"><h2>Expenses</h2><div class="scroll" id="expList"></div></div>
+  </section>
+
+  <section class="card"><h2>Monthly summary</h2><div id="report"></div></section>
+</main>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
